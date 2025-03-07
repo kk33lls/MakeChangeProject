@@ -36,7 +36,10 @@ public class MakeChange {
 			change -= twenties * 20.00;
 			
 			if(twenties > 0) {
-				System.out.print(twenties + " twenty dollar bill(s), ");
+				if(twenties < 2) {
+					System.out.print(twenties + " twenty dollar bill, ");
+				}
+				System.out.print(twenties + " twenty dollar bills, ");
 			}
 			
 			//Change returned in tens
@@ -44,7 +47,10 @@ public class MakeChange {
 			change  -= tens * 10.00;
 			
 			if (tens > 0) {
-				System.out.print(tens + " ten dollar bill(s), ");
+				if(tens < 2) {
+					System.out.print(tens + " ten dollar bill, ");
+				}
+				System.out.print(tens + " ten dollar bills, ");
 			}
 			
 			//Change returned in fives
@@ -52,7 +58,10 @@ public class MakeChange {
 			change  -= fives * 5.00;
 			
 			if (fives > 0) {
-				System.out.print(fives + " five dollar bill(s), ");
+				if(fives < 2) {
+					System.out.print(fives + " five dollar bill, ");
+				}
+				System.out.print(fives + " five dollar bills, ");
 			}
 			
 			//Change returned in ones
@@ -60,7 +69,10 @@ public class MakeChange {
 			change  -= ones * 1.00;
 			
 			if (ones > 0) {
-				System.out.print(ones + " one dollar bill(s), ");
+				if(ones < 2) {
+					System.out.print(ones + " one dollar bill, ");
+				}
+				System.out.print(ones + " one dollar bills, ");
 			}
 			
 			//Change returned in quarters
@@ -68,7 +80,7 @@ public class MakeChange {
 			change  -= quarters * .25;
 			
 			if (quarters > 0) {
-				if(quarters < 2) {
+				if(quarters <= 1) {
 					System.out.print(quarters + " quarter, ");
 				}
 				System.out.print(quarters + " quarters, ");
@@ -79,7 +91,7 @@ public class MakeChange {
 			change  -= dimes * .10;
 			
 			if (dimes > 0) {
-				if(dimes < 2) {
+				if(dimes == 1) {
 					System.out.print(dimes + " dime, ");
 				}
 				System.out.print(dimes + " dimes, ");
@@ -89,10 +101,10 @@ public class MakeChange {
 			int nickels = calculateNickels(change);
 			change  -= nickels * .05;
 			
-			if (nickels > 0) {
-				if(nickels < 2) {
-					System.out.print(nickels + " nickel, ");
-				}
+			if (nickels > 0 && nickels < 1) {
+				System.out.print(nickels + " nickel, ");
+			}
+			else{
 				System.out.print(nickels + " nickels, ");
 			}
 			
@@ -101,9 +113,8 @@ public class MakeChange {
 			change  -= pennies * .01;
 			
 			if (pennies > 0) {
-			   if(pennies < 2) {
+			   if(pennies <= 1) {
 					System.out.print(pennies + " penny, ");
-					System.exit(pennies);
 				}
 				System.out.print(pennies + " pennies, ");
 			}
