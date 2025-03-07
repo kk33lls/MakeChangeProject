@@ -12,7 +12,7 @@ public class MakeChange {
 		double tender;
 		double price;
 		
-//		do {
+
 		System.out.println("Enter the price of an item: ");
 		price = sc.nextDouble();
 		
@@ -27,18 +27,19 @@ public class MakeChange {
 			System.out.println("The amount tendered was exact. Thank you!");
 			System.exit(0);
 		} 
-//	}while (change < 0); 
+
 		change = tender - price;
-		System.out.print("Change owed is: " + change + ". ");	
+		double changeRounded = Math.round(change * 100.0) / 100.0;
+		System.out.print("Change owed is: " + changeRounded + ". ");	
 			
 		//Change returned in twenties
 			int twenties = calculateTwenties(change);
 			change -= twenties * 20.00;
 			
-			if(twenties > 0) {
-				if(twenties < 2) {
-					System.out.print(twenties + " twenty dollar bill, ");
-				}
+			if(twenties == 1) {
+				System.out.print(twenties + " twenty dollar bill, ");
+			}
+			else if(twenties > 0) {
 				System.out.print(twenties + " twenty dollar bills, ");
 			}
 			
@@ -46,10 +47,10 @@ public class MakeChange {
 			int tens = calculateTens(change);
 			change  -= tens * 10.00;
 			
-			if (tens > 0) {
-				if(tens < 2) {
-					System.out.print(tens + " ten dollar bill, ");
-				}
+			if(tens == 1) {
+				System.out.print(tens + " ten dollar bill, ");
+			}
+			else if (tens > 0) {
 				System.out.print(tens + " ten dollar bills, ");
 			}
 			
@@ -57,10 +58,10 @@ public class MakeChange {
 			int fives = calculateFives(change);
 			change  -= fives * 5.00;
 			
-			if (fives > 0) {
-				if(fives < 2) {
-					System.out.print(fives + " five dollar bill, ");
-				}
+			if(fives == 1) {
+				System.out.print(fives + " five dollar bill, ");
+			}
+			else if (fives > 0) {
 				System.out.print(fives + " five dollar bills, ");
 			}
 			
@@ -68,10 +69,10 @@ public class MakeChange {
 			int ones = calculateOnes(change);
 			change  -= ones * 1.00;
 			
-			if (ones > 0) {
-				if(ones < 2) {
-					System.out.print(ones + " one dollar bill, ");
-				}
+			if(ones == 1) {
+				System.out.print(ones + " one dollar bill, ");
+			}
+			else if (ones > 0) {
 				System.out.print(ones + " one dollar bills, ");
 			}
 			
@@ -79,10 +80,10 @@ public class MakeChange {
 			int quarters = calculateQuarters(change);
 			change  -= quarters * .25;
 			
-			if (quarters > 0) {
-				if(quarters <= 1) {
-					System.out.print(quarters + " quarter, ");
-				}
+			if(quarters == 1) {
+				System.out.print(quarters + " quarter, ");
+			}
+			else if (quarters > 0) {
 				System.out.print(quarters + " quarters, ");
 			}
 			
@@ -90,10 +91,10 @@ public class MakeChange {
 			int dimes = calculateDimes(change);
 			change  -= dimes * .10;
 			
-			if (dimes > 0) {
-				if(dimes == 1) {
-					System.out.print(dimes + " dime, ");
-				}
+			if(dimes == 1) {
+				System.out.print(dimes + " dime, ");
+			}
+			else if (dimes > 0) {
 				System.out.print(dimes + " dimes, ");
 			}
 			
@@ -101,21 +102,19 @@ public class MakeChange {
 			int nickels = calculateNickels(change);
 			change  -= nickels * .05;
 			
-			if (nickels > 0 && nickels < 1) {
+			if (nickels > 0) {
 				System.out.print(nickels + " nickel, ");
 			}
-			else{
-				System.out.print(nickels + " nickels, ");
-			}
+			
 			
 			//Change returned in pennies
 			int pennies = calculatePennies(change);
 			change  -= pennies * .01;
 			
-			if (pennies > 0) {
-			   if(pennies <= 1) {
-					System.out.print(pennies + " penny, ");
-				}
+			if (pennies == 1) {
+				System.out.print(pennies + " penny, ");
+			}
+			else if(pennies > 0) {
 				System.out.print(pennies + " pennies, ");
 			}
 			
